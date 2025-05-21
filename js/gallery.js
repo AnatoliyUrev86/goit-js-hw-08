@@ -63,3 +63,7 @@ const images = [
     description: "Lighthouse Coast Sea",
   },
 ];
+
+const imgEl = document.querySelector(".images");
+imgEl.insertAdjacentHTML("beforeend", createMarcup(images));
+imgEl.addEventListener("click", handalClick);
