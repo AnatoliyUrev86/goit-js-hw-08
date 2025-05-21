@@ -5,7 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.css"
+  />
   <body>
+    <ul class="gallery">
+      <li class="gallery-item">
+        <a class="gallery-link" href="large-image.jpg">
+          <img
+            class="gallery-image"
+            src="small-image.jpg"
+            data-source="large-image.jpg"
+            alt="Image description"
+          />
+        </a>
+      </li>
+    </ul>
+    <form action="submit" class="js-form-gallery">
+      <label for="username">Email</label>
+      <input type="text" name="Email" class="input-normal" />
+      <label for="username">Email</label>
+      <input type="text" name="Email" class="input-hover" />
+      <label for="username">Email</label>
+      <input
+        type="text"
+        name="Email"
+        class="input-active"
+        placeholder="Type area"
+      />
+    </form>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.0/basicLightbox.min.js"
+    />
     <script src="./js/gallery.js" type="module"></script>
   </body>
 </html>
