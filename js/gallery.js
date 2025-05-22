@@ -67,3 +67,27 @@ const images = [
 const imgEl = document.querySelector(".images");
 imgEl.insertAdjacentHTML("beforeend", createMarcup(images));
 imgEl.addEventListener("click", handalClick);
+function createMarcup(arr) {
+  return arr.map(
+    (images) => `
+       <img src="${images.preview}" alt="${images.description}">
+       <img src="${images.original}" alt="${images.description}"> `
+  );
+}
+
+function handalClick(event) {
+  if (event.target === event.currentTarget) {
+    return;
+  }
+}
+
+const currentImages = event.target.closest(".images-item");
+console.log(images);
+
+const instance = basicLightbox.create(`
+   <div  class="modal">
+    <img src="${images.preview}" alt="${images.description}">
+       <img src="${images.original}" alt="${images.description}">
+   </div> `);
+
+instance.show();
