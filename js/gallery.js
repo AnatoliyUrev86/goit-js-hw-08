@@ -80,6 +80,7 @@ function handalClick(event) {
     return;
   }
 }
+const { preview, original, description } = images;
 
 const currentImages = event.target.closest(".images-item");
 console.log(images);
