@@ -64,37 +64,38 @@ const images = [
   },
 ];
 
-const imgEl = document.querySelector(".images");
-const formEl = document.querySelector(".form-gallery");
-formEl.addEventListener("submit", handalForm);
-imgEl.insertAdjacentHTML("beforeend", createMarcup(images));
-imgEl.addEventListener("click", handalClick);
-function handalForm() {}
-function createMarcup(arr) {
-  return arr.map(
-    (images) => `
-       <img src="${images.preview}" alt="${images.description}">
-       <img src="${images.original}" alt="${images.description}"> `
-  );
-}
+const marcupitems = images
+  .map(
+    (image) => ` <li class="gallery-item">
+        <a class="gallery-link" href="${image.original}">
+          <img
+            class="gallery-image"
+            src="${image.preview}"
+            data-source="${image.original}"
+            alt="${image.description}"
+            width="360"
+            height="200"
+            
+          />
+        </a>
+      </li>`
+  )
+  .join("");
 
-function handalClick(event) {
-  if (event.target === event.currentTarget) {
+const galleryEl = document.querySelector(".gallery");
+galleryEl.insertAdjacentHTML("beforeend", marcupitems);
+
+galleryEl.addEventListener("click", handleClick);
+
+function handleClick(event) {
+  event.preventDefault();
+  if (event.target.nodeName !== "IMG") {
     return;
   }
+  const image = event.target.dataset.source;
+  const descriptionimage = event.target.alt;
+  const instance = basicLightbox.create(`
+         <img src="${image}" alt="${descriptionimage}"> `);
+
+  instance.show();
 }
-const currentProduct = event.target.closest(".images-item");
-const img = currentProduct.dataset.img;
-
-const { preview, original, description } = images;
-
-const currentImages = event.target.closest(".images-item");
-console.log(images);
-
-const instance = basicLightbox.create(`
-   <div  class="modal">
-    <img src="${images.preview}" alt="${images.description}">
-       <img src="${images.original}" alt="${images.description}">
-   </div> `);
-
-instance.show();
