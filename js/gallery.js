@@ -64,36 +64,37 @@ const images = [
   },
 ];
 
-// const imgEl = document.querySelector(".images");
-// const formEl = document.querySelector(".form-gallery");
-// formEl.addEventListener("submit", handalForm);
-// imgEl.insertAdjacentHTML("beforeend", createMarcup(images));
-// imgEl.addEventListener("click", handalClick);
-// function handalForm() {
-    
-// }
-// function createMarcup(arr) {
-//   return arr.map(
-//     (images) => `
-//        <img src="${images.preview}" alt="${images.description}">
-//        <img src="${images.original}" alt="${images.description}"> `
-//   );
-// }
+const imgEl = document.querySelector(".images");
+const formEl = document.querySelector(".form-gallery");
+formEl.addEventListener("submit", handalForm);
+imgEl.insertAdjacentHTML("beforeend", createMarcup(images));
+imgEl.addEventListener("click", handalClick);
+function handalForm() {}
+function createMarcup(arr) {
+  return arr.map(
+    (images) => `
+       <img src="${images.preview}" alt="${images.description}">
+       <img src="${images.original}" alt="${images.description}"> `
+  );
+}
 
-// function handalClick(event) {
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-// }
-// const { preview, original, description } = images;
+function handalClick(event) {
+  if (event.target === event.currentTarget) {
+    return;
+  }
+}
+const currentProduct = event.target.closest(".images-item");
+const img = currentProduct.dataset.img;
 
-// const currentImages = event.target.closest(".images-item");
-// console.log(images);
+const { preview, original, description } = images;
 
-// const instance = basicLightbox.create(`
-//    <div  class="modal">
-//     <img src="${images.preview}" alt="${images.description}">
-//        <img src="${images.original}" alt="${images.description}">
-//    </div> `);
+const currentImages = event.target.closest(".images-item");
+console.log(images);
 
-// instance.show();
+const instance = basicLightbox.create(`
+   <div  class="modal">
+    <img src="${images.preview}" alt="${images.description}">
+       <img src="${images.original}" alt="${images.description}">
+   </div> `);
+
+instance.show();
