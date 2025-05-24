@@ -22,5 +22,9 @@ p {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        
+        gap: 24px;
+        width: 1128px;
+        padding: 0 15px;
+        margin: 0 auto;
+
      }
