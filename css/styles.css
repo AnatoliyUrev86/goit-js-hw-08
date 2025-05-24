@@ -17,16 +17,10 @@ p {
 
         }
         
-
-.gallery{
-  display: flex;
-  width: 1128px;
-  height: 200px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  object-fit: cover;
-width: calc((100% - 3 *24px)/3);
-}
-
+     .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+     }
